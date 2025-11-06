@@ -1,4 +1,4 @@
-p align="center">
+align="center">
     A Beautiful Web-Based Base64 & String Decoder Tool Built by <b>Noman</b> <br>
     Fast • Clean UI • Mobile Friendly • 100% Free
 </p>
@@ -27,7 +27,7 @@ p align="center">
 ### 🚀 Live Demo  
 🔗 **Live Website:**
 
-https://YOUR-USERNAME.github.io/noman-code-decoder/
+https://github.com/Noman3015237350/Noman-code-decoder.git/
 
 (Replace after hosting)
 
@@ -48,7 +48,7 @@ No installation required.
 ### 📦 Local Run (Optional)
 ```bash
 # Download or clone repository
-git clone https://github.com/YOUR-USERNAME/noman-code-decoder.git
+git clone https://github.com/Noman3015237350/Noman-code-decoder.git
 
 # Open the project folder
 cd noman-code-decoder
