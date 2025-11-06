@@ -46,93 +46,111 @@ No installation required.
 ---
 
 ### 📦 Local Run (Optional)
-```bash
-# Download or clone repository
-git clone https://github.com/Noman3015237350/Noman-code-decoder.git
+# readme_generator.py
+import os
 
-# Open the project folder
-cd noman-code-decoder
+def generate_readme():
+    project_name = input("Project Name: ").strip()
+    description = input("Project Description: ").strip()
+    author_name = input("Author Name: ").strip()
+    
+    github_link = input("GitHub Repo Link: ").strip()
+    facebook_link = input("Facebook Link: ").strip()
+    whatsapp_link = input("WhatsApp Link: ").strip()
+    telegram_link = input("Telegram Link: ").strip()
+    
+    license_type = input("License (e.g., MIT, GPL): ").strip()
+    
+    add_badges = input("Do you want badges? (y/n): ").lower() == "y"
+    add_preview = input("Do you want live preview / GIF screenshot section? (y/n): ").lower() == "y"
 
-# Run in browser
-start index.html   # Windows
-xdg-open index.html  # Linux / Termux
-open index.html   # Mac
+    readme_lines = []
 
+    # Project Title
+    readme_lines.append(f"# {project_name}\n")
+    readme_lines.append(f"{description}\n")
 
----
+    # Badges
+    if add_badges:
+        readme_lines.append("![GitHub stars](https://img.shields.io/github/stars/{0}) "
+                            "![GitHub forks](https://img.shields.io/github/forks/{0}) "
+                            "![GitHub issues](https://img.shields.io/github/issues/{0})\n".format(github_link.replace("https://github.com/", "")))
 
-🧠 JavaScript Decoder Function (Core Logic)
+    # Table of Contents
+    readme_lines.append("## 📂 Table of Contents\n"
+                        "1. [Setup](#setup)\n"
+                        "2. [Usage](#usage)\n"
+                        "3. [Owner & Author](#owner--author)\n"
+                        "4. [Social Links](#social-links)\n"
+                        "5. [License](#license)\n"
+                        "6. [Support](#support-the-project)\n")
 
-function decodeBase64() {
-    var inputBase64 = document.getElementById("encodedText").value.trim();
-    try {
-        var decoded = decodeURIComponent(escape(atob(inputBase64)));
-        document.getElementById("outputText").textContent = decoded;
-    } catch (e) {
-        Swal.fire("❌ Error!", "Invalid or non-Base64 string!", "error");
-    }
-}
+    # Setup
+    readme_lines.append("## ⚙️ Setup\n"
+                        "```bash\n"
+                        "# Clone repository\n"
+                        f"git clone {github_link}\n\n"
+                        "# Enter project folder\n"
+                        f"cd {os.path.basename(github_link)}\n\n"
+                        "# Open in browser\n"
+                        "# Windows\n"
+                        "start index.html\n"
+                        "# Linux / Termux\n"
+                        "xdg-open index.html\n"
+                        "# Mac\n"
+                        "open index.html\n"
+                        "```\n")
 
+    # Usage
+    readme_lines.append("## 🧠 JavaScript Decoder Function (Core Logic)\n"
+                        "```javascript\n"
+                        "function decodeBase64() {\n"
+                        "    var inputBase64 = document.getElementById(\"encodedText\").value.trim();\n"
+                        "    try {\n"
+                        "        var decoded = decodeURIComponent(escape(atob(inputBase64)));\n"
+                        "        document.getElementById(\"outputText\").textContent = decoded;\n"
+                        "    } catch (e) {\n"
+                        "        Swal.fire(\"❌ Error!\", \"Invalid or non-Base64 string!\", \"error\");\n"
+                        "    }\n"
+                        "}\n"
+                        "```\n")
 
----
+    # Author
+    readme_lines.append(f"## 👤 Owner & Author\n\n{author_name}\n\n")
 
-👤 Owner & Author
+    # Social Links
+    readme_lines.append("## 🌎 Social Links\n\n"
+                        "| Platform | Link |\n"
+                        "|----------|------|\n"
+                        f"| 🔵 Facebook | {facebook_link} |\n"
+                        f"| 🟢 WhatsApp | {whatsapp_link} |\n"
+                        f"| 🚀 Telegram | {telegram_link} |\n")
 
-Noman
-Full Stack Web & Python Developer
+    # License
+    readme_lines.append(f"## 📝 License\n\n✅ Free to use\n❌ Don't remove author credits without permission ({license_type})\n")
 
+    # Support
+    readme_lines.append("## ⭐ Support The Project\n\n"
+                        "If you like this, give it a Star ⭐ on GitHub\n\n"
+                        "```bash\n"
+                        "git clone → modify → share → contribute ✅\n"
+                        "```\n")
 
----
+    # Preview/GIF
+    if add_preview:
+        readme_lines.append("## 💻 Live Preview / Screenshot\n\n"
+                            "![Preview](link_to_preview.gif)\n")
 
-🌎 Social Links
+    # Footer
+    readme_lines.append("## 💬 Need help?\n"
+                        f"Inbox: Telegram Group → {telegram_link}\n\n"
+                        "Always learning, always building 🚀 — {0}".format(author_name))
 
-Platform	Link
+    # Save README.md
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write("\n".join(readme_lines))
 
-🔵 Facebook	https://www.facebook.com/md.norman.988
-🟢 WhatsApp	https://whatsapp.com/channel/0029VbAkW0SATRSeAAYjNv1Z
-🚀 Telegram	https://t.me/TNEHCHATGROUP
+    print("✅ README.md generated successfully!")
 
-
-
----
-
-📝 License
-
-✅ Free to use
-❌ Don't remove author credits without permission
-
-
----
-
-⭐ Support The Project
-
-If you like this, give it a Star ⭐ on GitHub
-
-git clone → modify → share → contribute ✅
-
-
----
-
-💬 Need help?
-
-Inbox: Telegram Group → https://t.me/TNEHCHATGROUP
-
-Always learning, always building 🚀 — Noman
-
----
-
-## ✅ এখন কী করতে হবে?
-
-➜ তুমি শুধু **এই README.md কপি করে GitHub repo–তে Upload** করো  
-➜ যদি চাও আমি এটাকে **আরও pro look (badges, shields, logo)** দিয়ে আপগ্রেড করি — শুধু বলো:
-
-Add badges & logo
-
-➜ যদি চাও আমি README–তে **GIF animation + Live Preview Image** যোগ করি — বলবে:
-
-Add preview screenshot section fully
-
----
-
-### 🔥 চাইলে আমি README + index.html + assets নিয়ে **একটা ZIP প্যাকেজও বানিয়ে দিতে পারি**  
-বললেই ডাউনলোড লিঙ্ক তৈরি করে দেব ✅
+if __name__ == "__main__":
+    generate_readme()
